@@ -32,7 +32,7 @@ namespace ConsoleApp1234
             IOrganizationService service = Getorganisation();
             Console.WriteLine("Connection Established with crm");
 
-            /*<<--------Fetching Excel file-------->>*/
+            /*<<-----------------------------Fetching Excel file data------------------------->>*/
             Application excelApp = new Application();
 
             Workbook EBook = excelApp.Workbooks.Open(@"D:\My Company\D. Sir Tasks\Excel for Account\Accounts XLS Worksheet.xlsx");
@@ -41,7 +41,8 @@ namespace ConsoleApp1234
 
             int numberOfRows = excelRange.Rows.Count;
             int numberOfCols = excelRange.Columns.Count;
-
+           
+           /*<<-----------------------------Adding records to Account entity------------------------->>*/
             for(int i = 1; i<=numberOfRows; i++)
             {
                 if (excelRange.Cells[i, 1] != null && excelRange.Cells[i, 1].Value2 != null && excelRange.Cells[i, 2] != null && excelRange.Cells[i, 2].Value2 != null)
